@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Footer from '../components/Footer.astro';
+import ContactForm from '../components/ContactForm.astro';
+import PracticeAreaCard from '../components/PracticeAreaCard.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import SchemaOrg from '../components/SchemaOrg.astro';
+import { practiceAreas } from '../data/practiceAreas';
+
+const features = [
+  {
+    title: 'Über 15 Jahre Erfahrung in Zürich',
+    description: 'Seit 2009 vertreten wir erfolgreich Mandanten in Zürich und Umgebung. Unsere Rechtsanwälte kennen die lokalen Gerichte, Behörden und rechtlichen Besonderheiten.',
+  },
+  {
+    title: 'Persönliche Betreuung',
+    description: 'Bei uns werden Sie nicht zur Nummer. Ihr Fall wird persönlich von einem erfahrenen Rechtsanwalt betreut – vom Erstgespräch bis zum Abschluss.',
+  },
+  {
+    title: 'Kostenlose Erstberatung',
+    description: 'Lernen Sie uns unverbindlich kennen. In einem kostenlosen Erstgespräch analysieren wir Ihre Situation und zeigen Ihnen Handlungsoptionen auf.',
+  },
+  {
+    title: 'Transparente Kosten',
+    description: 'Wir informieren Sie vorab über unser Honorar, arbeiten auf Wunsch mit Pauschalpreisen und bieten Ratenzahlung an.',
+  },
+];
+
+const schema = {
+  "@type": "LegalService",
+  "name": "Anwaltskanzlei Zürich",
+  "description": "Anwaltskanzlei Zürich - Ihre kompetente Rechtsberatung in Zürich. Über 15 Jahre Erfahrung in Familienrecht, Arbeitsrecht, Vertragsrecht, Strafrecht und Mietrecht.",
+  "url": "https://anwaltskanzleizuerich.ch",
+  "areaServed": {
+    "@type": "City",
+    "name": "Zürich",
+  },
+  "priceRange": "CHF 300-500/Stunde",
+};
+---
+
+<BaseLayout
+  title="Anwaltskanzlei Zürich - Ihre kompetente Rechtsberatung"
+  description="Anwaltskanzlei Zürich - Ihre kompetente Rechtsberatung in Zürich. Über 15 Jahre Erfahrung in Familienrecht, Arbeitsrecht, Vertragsrecht, Strafrecht und Mietrecht."
+  keywords="Anwalt Zürich, Rechtsanwalt Zürich, Familienrecht, Arbeitsrecht, Vertragsrecht, Strafrecht, Mietrecht"
+>
+    <SchemaOrg schema={schema} slot="schema" />
+
+    <Nav />
+
+    <!-- Hero Section -->
+    <Hero
+      title="Anwalt in Zürich"
+      subtitle="Ihre kompetente Rechtsberatung"
+      description="Über 15 Jahre Erfahrung in allen Rechtsgebieten. Persönlich. Professionell. Erfolgreich."
+      ctaText="Kostenlose Erstberatung anfragen"
+      ctaHref="#kontakt"
+      backgroundImage="https://images.unsplash.com/photo-1508962914676-134849a727f0?w=1920&q=80"
+      overlay="rgba(30, 58, 138, 0.7), rgba(30, 58, 138, 0.5)"
+      fullHeight={true}
+    >
+        <div class="mt-16 animate-bounce">
+            <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </Hero>
+
+    <!-- Rechtsgebiete Section -->
+    <section id="rechtsgebiete" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-navy mb-4">
+                    Unsere Rechtsgebiete
+                </h2>
+                <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Ihr Anwalt für alle Fälle in Zürich
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {practiceAreas.map((area) => (
+                    <PracticeAreaCard
+                        title={area.title}
+                        description={area.description}
+                        icon={area.icon}
+                        href={area.href}
+                    />
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Warum Wir Section -->
+    <section id="warum" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-navy mb-4">
+                    Warum Sie uns wählen sollten
+                </h2>
+                <div class="w-24 h-1 bg-gold mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                {features.map((feature) => (
+                    <FeatureCard title={feature.title} description={feature.description} />
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontakt Section -->
+    <section id="kontakt" class="py-20 bg-navy text-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">
+                    Jetzt Kontakt aufnehmen
+                </h2>
+                <p class="text-xl mb-6">
+                    Haben Sie rechtliche Fragen? Kontaktieren Sie uns für eine kostenlose Erstberatung.
+                </p>
+            </div>
+
+            <ContactForm />
+
+            <div class="mt-12 text-center">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center text-lg">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                        </svg>
+                        <a href="mailto:[EMAIL]" class="hover:text-gold transition">[EMAIL]</a>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                        </svg>
+                        <a href="tel:[TELEFON]" class="hover:text-gold transition">[TELEFON]</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</BaseLayout>

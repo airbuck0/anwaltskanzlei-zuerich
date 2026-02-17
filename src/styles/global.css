@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .hero-bg-home {
+    background: linear-gradient(rgba(30, 58, 138, 0.7), rgba(30, 58, 138, 0.5)),
+                url('https://images.unsplash.com/photo-1508962914676-134849a727f0?w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .prose h2 {
+    scroll-margin-top: 100px;
+  }
+  .prose h3 {
+    scroll-margin-top: 100px;
+  }
+}

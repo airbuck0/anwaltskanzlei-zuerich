@@ -1,0 +1,31 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  noindex?: boolean;
+}
+
+const { title, description, noindex = false } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} noindex={noindex}>
+    <Nav fixed={false} />
+
+    <main class="max-w-4xl mx-auto px-4 py-16">
+        <h1 class="font-serif text-4xl md:text-5xl font-bold text-navy mb-8">
+            <slot name="title">{title.split(' - ')[0]}</slot>
+        </h1>
+        <slot />
+        <div class="text-center mt-12">
+            <a href="/" class="inline-block bg-navy text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-900 transition">
+                Zurück zur Startseite
+            </a>
+        </div>
+    </main>
+
+    <Footer />
+</BaseLayout>

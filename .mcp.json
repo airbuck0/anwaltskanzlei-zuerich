@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "firecrawl": {
+      "command": "cmd",
+      "args": ["/c", "npx", "-y", "firecrawl-mcp"],
+      "env": {
+        "FIRECRAWL_API_KEY": "fc-1c779dd534ff4ffa960274917cfb75bd"
+      }
+    },
+    "pop-api": {
+      "command": "node",
+      "args": ["C:/Users/Alen Gorgievski/Desktop/GB-Legal Blog Posts/mcp-servers/pop-api/index.js"],
+      "env": {
+        "POP_API_KEY": "ADD_ON_fdc3119113491d88"
+      }
+    }
+  }
+}

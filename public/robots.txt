@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /
+
+# Website komplett gesperrt für Suchmaschinen
+# Keine Indexierung gewünscht
+# Nach Go-Live ändern zu:
+# User-agent: *
+# Allow: /
+# Sitemap: https://anwaltskanzleizuerich.ch/sitemap-index.xml

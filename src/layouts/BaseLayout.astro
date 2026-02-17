@@ -1,0 +1,56 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+  canonical?: string;
+  noindex?: boolean;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description,
+  keywords,
+  canonical,
+  noindex = false,
+  ogImage,
+} = Astro.props;
+
+const siteUrl = 'https://anwaltskanzleizuerich.ch';
+const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
+---
+
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {noindex && <meta name="robots" content="noindex, nofollow">}
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    {keywords && <meta name="keywords" content={keywords}>}
+    <link rel="canonical" href={canonicalUrl}>
+    <link rel="alternate" hreflang="de-CH" href={canonicalUrl}>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:url" content={canonicalUrl}>
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_CH">
+    <meta property="og:site_name" content="Anwaltskanzlei Zürich">
+    {ogImage && <meta property="og:image" content={ogImage}>}
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Schema.org Slot -->
+    <slot name="schema" />
+</head>
+<body class="font-sans">
+    <slot />
+</body>
+</html>

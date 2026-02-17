@@ -1,0 +1,20 @@
+---
+interface Props {
+  type?: 'info' | 'warning' | 'success' | 'gold';
+  title?: string;
+}
+
+const { type = 'info', title } = Astro.props;
+
+const styles = {
+  info: 'bg-blue-50 border-blue-200 text-blue-900',
+  warning: 'bg-red-50 border-red-200 text-red-900',
+  success: 'bg-green-50 border-green-200 text-green-900',
+  gold: 'bg-yellow-50 border-gold text-gray-900',
+};
+---
+
+<div class:list={["rounded-lg border-l-4 p-6 my-6", styles[type]]}>
+    {title && <p class="font-bold mb-2">{title}</p>}
+    <slot />
+</div>

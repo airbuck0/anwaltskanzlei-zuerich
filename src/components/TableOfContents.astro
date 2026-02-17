@@ -1,0 +1,33 @@
+---
+interface Props {
+  headings: { text: string; id: string; depth: number }[];
+}
+
+const { headings } = Astro.props;
+---
+
+<div class="bg-white border-b">
+    <div class="max-w-4xl mx-auto px-4 py-6">
+        <details class="group">
+            <summary class="cursor-pointer text-navy font-semibold text-lg flex items-center gap-2">
+                <svg class="w-5 h-5 transition-transform group-open:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+                Inhaltsverzeichnis
+            </summary>
+            <nav class="mt-4 space-y-2">
+                {headings.map((heading) => (
+                    <a
+                        href={`#${heading.id}`}
+                        class:list={[
+                            "block text-gray-600 hover:text-navy transition",
+                            heading.depth === 3 && "ml-4 text-sm",
+                        ]}
+                    >
+                        {heading.text}
+                    </a>
+                ))}
+            </nav>
+        </details>
+    </div>
+</div>

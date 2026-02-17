@@ -1,0 +1,50 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  description?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  backgroundImage: string;
+  overlay?: string;
+  fullHeight?: boolean;
+}
+
+const {
+  title,
+  subtitle,
+  description,
+  ctaText,
+  ctaHref = '#kontakt',
+  backgroundImage,
+  overlay = 'rgba(30, 58, 138, 0.85), rgba(30, 58, 138, 0.75)',
+  fullHeight = false,
+} = Astro.props;
+
+const heroStyle = `background: linear-gradient(${overlay}), url('${backgroundImage}'); background-size: cover; background-position: center;`;
+const heightClass = fullHeight ? 'h-screen' : 'min-h-[60vh]';
+---
+
+<section class:list={[heightClass, "flex items-center justify-center text-white pt-20"]} style={heroStyle}>
+    <div class="text-center px-4 py-16">
+        <h1 class="font-serif text-4xl md:text-6xl font-bold mb-6">
+            {title}
+        </h1>
+        {subtitle && (
+            <p class="text-xl md:text-2xl mb-4 font-light max-w-3xl mx-auto">
+                {subtitle}
+            </p>
+        )}
+        {description && (
+            <p class="text-lg mb-10 max-w-2xl mx-auto">
+                {description}
+            </p>
+        )}
+        {ctaText && (
+            <a href={ctaHref} class="inline-block bg-gold text-navy px-10 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-600 transition transform hover:scale-105 mt-6">
+                {ctaText}
+            </a>
+        )}
+        <slot />
+    </div>
+</section>

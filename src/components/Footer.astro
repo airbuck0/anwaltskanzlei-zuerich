@@ -1,0 +1,45 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-gray-900 text-gray-300 py-12">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="font-serif text-xl font-bold text-white mb-4">Anwaltskanzlei Zürich</h3>
+                <p class="text-sm">
+                    Ihre kompetente Rechtsberatung in Zürich seit 2009.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-semibold text-white mb-4">Rechtsgebiete</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="/anwalt-fuer-familienrecht" class="hover:text-gold transition">Familienrecht</a></li>
+                    <li><a href="/anwalt-fuer-arbeitsrecht" class="hover:text-gold transition">Arbeitsrecht</a></li>
+                    <li>Vertragsrecht</li>
+                    <li>Strafrecht</li>
+                    <li><a href="/anwalt-fuer-immobilienrecht" class="hover:text-gold transition">Mietrecht</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold text-white mb-4">Über uns</h4>
+                <ul class="space-y-2 text-sm">
+                    <li>Unser Team</li>
+                    <li>Philosophie</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold text-white mb-4">Kontakt</h4>
+                <ul class="space-y-2 text-sm">
+                    <li>[ADRESSE]</li>
+                    <li>[PLZ ORT]</li>
+                    <li>[TELEFON]</li>
+                    <li>[EMAIL]</li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm">
+            <p>&copy; {currentYear} Anwaltskanzlei Zürich | <a href="/impressum" class="hover:text-gold transition">Impressum</a> | <a href="/datenschutz" class="hover:text-gold transition">Datenschutz</a></p>
+        </div>
+    </div>
+</footer>

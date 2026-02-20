@@ -2,62 +2,65 @@
 const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY;
 ---
 
-<form action="https://api.web3forms.com/submit" method="POST" class="bg-white text-gray-800 rounded-lg p-8 shadow-xl">
+<form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
     <input type="hidden" name="access_key" value={web3formsKey}>
     <input type="hidden" name="subject" value="Neue Anfrage von anwaltskanzleizuerich.ch">
     <input type="hidden" name="from_name" value="Anwaltskanzlei Zürich Website">
     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-    <div class="grid md:grid-cols-2 gap-6 mb-6">
+    <div class="grid sm:grid-cols-2 gap-5">
         <div>
-            <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Ihr Name *</label>
-            <input type="text" id="name" name="name" required
-                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-navy">
+            <label for="name" class="block text-sm font-medium text-gray-700 mb-1.5">Name *</label>
+            <input type="text" id="name" name="name" required placeholder="Ihr vollständiger Name"
+                   class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition">
         </div>
         <div>
-            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Ihre E-Mail *</label>
-            <input type="email" id="email" name="email" required
-                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-navy">
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-1.5">E-Mail *</label>
+            <input type="email" id="email" name="email" required placeholder="ihre@email.ch"
+                   class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition">
         </div>
     </div>
 
-    <div class="mb-6">
-        <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">Telefonnummer</label>
-        <input type="tel" id="phone" name="phone"
-               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-navy">
+    <div class="grid sm:grid-cols-2 gap-5">
+        <div>
+            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1.5">Telefon</label>
+            <input type="tel" id="phone" name="phone" placeholder="+41 44 000 00 00"
+                   class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition">
+        </div>
+        <div>
+            <label for="rechtsgebiet" class="block text-sm font-medium text-gray-700 mb-1.5">Rechtsgebiet</label>
+            <select id="rechtsgebiet" name="rechtsgebiet"
+                    class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition">
+                <option value="">Bitte wählen</option>
+                <option value="Familienrecht">Familienrecht</option>
+                <option value="Strafrecht">Strafrecht</option>
+                <option value="Arbeitsrecht">Arbeitsrecht</option>
+                <option value="Erbrecht">Erbrecht</option>
+                <option value="Mietrecht">Mietrecht</option>
+                <option value="Vertragsrecht">Vertragsrecht</option>
+                <option value="Baurecht">Baurecht</option>
+                <option value="Immobilienrecht">Immobilienrecht</option>
+                <option value="Migrationsrecht">Migrationsrecht</option>
+                <option value="Sonstiges">Sonstiges</option>
+            </select>
+        </div>
     </div>
 
-    <div class="mb-6">
-        <label for="rechtsgebiet" class="block text-sm font-semibold text-gray-700 mb-2">Rechtsgebiet</label>
-        <select id="rechtsgebiet" name="rechtsgebiet"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-navy">
-            <option value="">Bitte wählen</option>
-            <option value="Familienrecht">Familienrecht</option>
-            <option value="Arbeitsrecht">Arbeitsrecht</option>
-            <option value="Vertragsrecht">Vertragsrecht</option>
-            <option value="Strafrecht">Strafrecht</option>
-            <option value="Mietrecht">Mietrecht</option>
-            <option value="Sonstiges">Sonstiges</option>
-        </select>
+    <div>
+        <label for="message" class="block text-sm font-medium text-gray-700 mb-1.5">Nachricht *</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Beschreiben Sie kurz Ihr Anliegen..."
+                  class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition resize-none"></textarea>
     </div>
 
-    <div class="mb-6">
-        <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Ihre Nachricht *</label>
-        <textarea id="message" name="message" rows="6" required
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-navy"></textarea>
-    </div>
-
-    <div class="mb-6">
-        <label class="flex items-start">
-            <input type="checkbox" required class="mt-1 mr-3">
-            <span class="text-sm text-gray-600">
-                Ich habe die <a href="/datenschutz" class="text-navy underline">Datenschutzerklärung</a> zur Kenntnis genommen. Ich stimme zu, dass meine Angaben zur Kontaktaufnahme und für Rückfragen gespeichert werden.
-            </span>
-        </label>
-    </div>
+    <label class="flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" required class="mt-1 w-4 h-4 rounded border-gray-300 text-gold focus:ring-gold">
+        <span class="text-xs text-gray-500 leading-relaxed">
+            Ich habe die <a href="/datenschutz" class="text-navy underline hover:text-gold transition">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu.
+        </span>
+    </label>
 
     <button type="submit"
-            class="w-full bg-gold text-navy px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-600 transition">
+            class="w-full bg-gold text-navy-dark px-6 py-3.5 rounded text-sm font-semibold hover:bg-gold-light transition">
         Nachricht senden
     </button>
 </form>

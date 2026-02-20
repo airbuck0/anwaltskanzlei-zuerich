@@ -98,9 +98,9 @@ const faqSchema = {
     <SchemaOrg schema={schema} slot="schema" />
     <script type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", ...faqSchema })} slot="schema" />
 
-    <Nav />
+    <Nav transparent={true} />
 
-    <!-- Hero Section -->
+    <!-- ═══════════════ HERO ═══════════════ -->
     <Hero
       title="Anwaltskanzlei Zürich"
       subtitle="Erfahrene Rechtsanwälte für Ihre rechtlichen Anliegen"
@@ -108,71 +108,75 @@ const faqSchema = {
       ctaText="Kostenlose Erstberatung anfragen"
       ctaHref="#kontakt"
       backgroundImage="https://images.unsplash.com/photo-1508962914676-134849a727f0?w=1920&q=80"
-      overlay="rgba(30, 58, 138, 0.7), rgba(30, 58, 138, 0.5)"
       fullHeight={true}
     >
-        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center text-sm">
+        <div class="mt-12 flex flex-wrap gap-8 text-sm text-white/70">
             <div class="flex items-center gap-2">
-                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                <span>Kostenlose Erstberatung</span>
+                <div class="w-1.5 h-1.5 rounded-full bg-gold"></div>
+                Kostenlose Erstberatung
             </div>
             <div class="flex items-center gap-2">
-                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                <span>Transparente Kosten</span>
+                <div class="w-1.5 h-1.5 rounded-full bg-gold"></div>
+                Transparente Kosten
             </div>
             <div class="flex items-center gap-2">
-                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                <span>Termin innert 24 Stunden</span>
+                <div class="w-1.5 h-1.5 rounded-full bg-gold"></div>
+                Termin innert 24 Stunden
             </div>
-        </div>
-        <div class="mt-12 animate-bounce">
-            <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
         </div>
     </Hero>
 
-    <!-- Intro Section -->
-    <section class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="font-serif text-3xl md:text-4xl font-bold text-navy mb-6 text-center">
-                Ihre Anwaltskanzlei in Zürich — kompetent, persönlich, erfolgreich
-            </h2>
-            <div class="w-24 h-1 bg-gold mx-auto mb-8"></div>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="prose prose-lg max-w-none text-gray-700 space-y-4">
-                    <p>
-                        Sie suchen einen <strong>Rechtsanwalt in Zürich</strong>, der Ihr Anliegen versteht und sich konsequent für Ihre Interessen einsetzt? Unsere Anwaltskanzlei verbindet juristische Fachkompetenz mit persönlicher Betreuung — damit Sie in jeder rechtlichen Situation die bestmögliche Lösung erhalten. Wir bieten umfassende Rechtsberatung für Privatpersonen und Unternehmen.
-                    </p>
-                    <p>
-                        Seit über 15 Jahren beraten und vertreten wir Mandanten in Zürich und der Deutschschweiz. Ob Scheidung, Strafverfahren, arbeitsrechtlicher Konflikt oder Erbstreit: Unsere erfahrenen Anwälte analysieren Ihre Situation, entwickeln eine klare Strategie und setzen Ihr Recht durch — vor Gericht, vor Behörden oder am Verhandlungstisch. Auch bei komplexen rechtlichen Herausforderungen finden wir eine Lösung.
-                    </p>
-                    <p>
-                        Was uns von anderen Kanzleien unterscheidet? Wir nehmen uns Zeit für Sie. Jeder Mandant erhält einen festen Ansprechpartner, der den Fall von Anfang bis Ende betreut. Und wir sprechen Klartext: Sie erfahren von uns nicht nur, was rechtlich möglich ist, sondern auch, was sinnvoll ist — ehrlich, direkt und verständlich. Bei allen rechtlichen Fragen stehen wir Ihnen zur Seite.
-                    </p>
+    <!-- ═══════════════ INTRO ═══════════════ -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-20 items-center">
+                <div class="reveal">
+                    <p class="section-label mb-3">Über unsere Kanzlei</p>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-navy leading-snug mb-6">
+                        Ihre Anwaltskanzlei in Zürich — kompetent, persönlich, erfolgreich
+                    </h2>
+                    <div class="w-12 h-0.5 bg-gold mb-8"></div>
+                    <div class="space-y-5 text-gray-600 leading-relaxed">
+                        <p>
+                            Sie suchen einen <strong class="text-navy">Rechtsanwalt in Zürich</strong>, der Ihr Anliegen versteht und sich konsequent für Ihre Interessen einsetzt? Unsere Anwaltskanzlei verbindet juristische Fachkompetenz mit persönlicher Betreuung — damit Sie in jeder rechtlichen Situation die bestmögliche Lösung erhalten. Wir bieten umfassende Rechtsberatung für Privatpersonen und Unternehmen.
+                        </p>
+                        <p>
+                            Seit über 15 Jahren beraten und vertreten wir Mandanten in Zürich und der Deutschschweiz. Ob Scheidung, Strafverfahren, arbeitsrechtlicher Konflikt oder Erbstreit: Unsere erfahrenen Anwälte analysieren Ihre Situation, entwickeln eine klare Strategie und setzen Ihr Recht durch — vor Gericht, vor Behörden oder am Verhandlungstisch. Auch bei komplexen rechtlichen Herausforderungen finden wir eine Lösung.
+                        </p>
+                        <p>
+                            Was uns von anderen Kanzleien unterscheidet? Wir nehmen uns Zeit für Sie. Jeder Mandant erhält einen festen Ansprechpartner, der den Fall von Anfang bis Ende betreut. Und wir sprechen Klartext: Sie erfahren von uns nicht nur, was rechtlich möglich ist, sondern auch, was sinnvoll ist — ehrlich, direkt und verständlich. Bei allen rechtlichen Fragen stehen wir Ihnen zur Seite.
+                        </p>
+                    </div>
                 </div>
-                <div class="space-y-4">
-                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80" alt="Rechtsberatung in der Anwaltskanzlei Zürich — persönliches Gespräch mit dem Anwalt" class="rounded-lg shadow-md w-full" loading="lazy" width="600" height="400" />
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Erfahrene Rechtsanwälte in Zürich beraten Mandanten" class="rounded-lg shadow-md w-full" loading="lazy" width="600" height="400" />
+                <div class="mt-12 lg:mt-0 reveal">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80" alt="Rechtsberatung in der Anwaltskanzlei Zürich — persönliches Gespräch mit dem Anwalt" class="rounded w-full object-cover aspect-[4/3]" loading="lazy" width="600" height="450" />
+                        <div class="absolute -bottom-6 -left-6 bg-navy-dark text-white p-6 rounded hidden lg:block">
+                            <span class="block font-serif text-3xl font-bold text-gold">15+</span>
+                            <span class="text-xs text-gray-400 tracking-wide uppercase">Jahre Erfahrung</span>
+                        </div>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Erfahrene Rechtsanwälte in Zürich beraten Mandanten" class="rounded w-full object-cover aspect-[16/7] mt-4" loading="lazy" width="600" height="262" />
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Rechtsgebiete Section -->
-    <section id="rechtsgebiete" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="font-serif text-3xl md:text-4xl font-bold text-navy mb-4">
+    <!-- ═══════════════ RECHTSGEBIETE ═══════════════ -->
+    <section id="rechtsgebiete" class="py-24 bg-warm">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-2xl mb-16 reveal">
+                <p class="section-label mb-3">Unsere Expertise</p>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-navy leading-snug mb-4">
                     Rechtsgebiete unserer Anwaltskanzlei
                 </h2>
-                <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                <div class="w-12 h-0.5 bg-gold mb-6"></div>
+                <p class="text-gray-600 leading-relaxed">
                     Ihr Anwalt in Zürich für alle Rechtsgebiete des Schweizer Rechts
                 </p>
-                <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=1200&q=80" alt="Gerichtssaal Schweiz — Anwalt vertritt Mandanten vor Gericht in Zürich" class="mt-8 rounded-lg shadow-md w-full max-w-3xl mx-auto" loading="lazy" width="1200" height="600" />
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=1200&q=80" alt="Gerichtssaal Schweiz — Anwalt vertritt Mandanten vor Gericht in Zürich" class="rounded w-full max-h-72 object-cover mb-12 reveal" loading="lazy" width="1200" height="288" />
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 reveal">
                 {practiceAreas.map((area) => (
                     <PracticeAreaCard
                         title={area.title}
@@ -185,137 +189,191 @@ const faqSchema = {
         </div>
     </section>
 
-    <!-- Ablauf Section -->
-    <section class="py-20 bg-white">
-        <div class="max-w-5xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="font-serif text-3xl md:text-4xl font-bold text-navy mb-4">
+    <!-- ═══════════════ ABLAUF ═══════════════ -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-2xl mb-16 reveal">
+                <p class="section-label mb-3">So funktioniert es</p>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-navy leading-snug mb-4">
                     Rechtsberatung in Zürich — so gehen wir vor
                 </h2>
-                <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                <div class="w-12 h-0.5 bg-gold mb-6"></div>
+                <p class="text-gray-600 leading-relaxed">
                     Von der ersten Kontaktaufnahme bis zur Lösung Ihres Falls — in drei klaren Schritten.
                 </p>
             </div>
-            <div class="grid md:grid-cols-3 gap-12">
-                <div class="text-center">
-                    <img src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=400&q=80" alt="Telefonische Rechtsberatung — Anwalt in Zürich kontaktieren" class="rounded-lg shadow-sm w-full h-48 object-cover mb-6" loading="lazy" width="400" height="192" />
-                    <h3 class="font-serif text-xl font-bold text-navy mb-3">Kontakt aufnehmen</h3>
-                    <p class="text-gray-600">
+            <div class="grid md:grid-cols-3 gap-8 reveal">
+                <div class="relative">
+                    <span class="font-serif text-6xl font-bold text-gold/15 absolute -top-4 -left-2">01</span>
+                    <img src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=400&q=80" alt="Telefonische Rechtsberatung — Anwalt in Zürich kontaktieren" class="rounded w-full h-48 object-cover mb-5 relative" loading="lazy" width="400" height="192" />
+                    <h3 class="font-serif text-xl font-bold text-navy mb-2">Kontakt aufnehmen</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
                         Schildern Sie uns Ihr Anliegen — per Telefon, E-Mail oder Kontaktformular. Wir melden uns innerhalb von 24 Stunden mit einem Terminvorschlag.
                     </p>
                 </div>
-                <div class="text-center">
-                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=400&q=80" alt="Kostenlose Erstberatung beim Rechtsanwalt in Zürich" class="rounded-lg shadow-sm w-full h-48 object-cover mb-6" loading="lazy" width="400" height="192" />
-                    <h3 class="font-serif text-xl font-bold text-navy mb-3">Kostenlose Erstberatung</h3>
-                    <p class="text-gray-600">
+                <div class="relative">
+                    <span class="font-serif text-6xl font-bold text-gold/15 absolute -top-4 -left-2">02</span>
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=400&q=80" alt="Kostenlose Erstberatung beim Rechtsanwalt in Zürich" class="rounded w-full h-48 object-cover mb-5 relative" loading="lazy" width="400" height="192" />
+                    <h3 class="font-serif text-xl font-bold text-navy mb-2">Kostenlose Erstberatung</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
                         Im persönlichen Gespräch analysieren wir Ihre Situation, erklären die Rechtslage verständlich und zeigen Ihnen alle Optionen auf — kostenlos und unverbindlich.
                     </p>
                 </div>
-                <div class="text-center">
-                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&q=80" alt="Strategie und Umsetzung durch erfahrene Anwälte in Zürich" class="rounded-lg shadow-sm w-full h-48 object-cover mb-6" loading="lazy" width="400" height="192" />
-                    <h3 class="font-serif text-xl font-bold text-navy mb-3">Strategie und Umsetzung</h3>
-                    <p class="text-gray-600">
+                <div class="relative">
+                    <span class="font-serif text-6xl font-bold text-gold/15 absolute -top-4 -left-2">03</span>
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&q=80" alt="Strategie und Umsetzung durch erfahrene Anwälte in Zürich" class="rounded w-full h-48 object-cover mb-5 relative" loading="lazy" width="400" height="192" />
+                    <h3 class="font-serif text-xl font-bold text-navy mb-2">Strategie und Umsetzung</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
                         Sie entscheiden — wir handeln. Ihr Rechtsanwalt entwickelt eine massgeschneiderte Strategie und setzt Ihr Recht konsequent durch, ob am Verhandlungstisch oder vor Gericht.
                     </p>
                 </div>
             </div>
-            <div class="text-center mt-12">
-                <a href="#kontakt" class="inline-block bg-gold text-navy px-10 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-600 transition transform hover:scale-105">
+            <div class="mt-14 reveal">
+                <a href="#kontakt" class="inline-flex items-center gap-2 bg-gold text-navy-dark px-8 py-4 rounded text-sm font-semibold hover:bg-gold-light transition">
                     Jetzt kostenlos beraten lassen
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Warum Wir Section -->
-    <section id="warum" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="font-serif text-3xl md:text-4xl font-bold text-navy mb-4">
-                    Warum Mandanten unsere Anwaltskanzlei in Zürich wählen
-                </h2>
-                <div class="w-24 h-1 bg-gold mx-auto"></div>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="md:col-span-2 mb-4">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Moderne Anwaltskanzlei in Zürich — professionelle Arbeitsumgebung" class="rounded-lg shadow-md w-full max-h-80 object-cover" loading="lazy" width="1200" height="320" />
+    <!-- ═══════════════ WARUM WIR ═══════════════ -->
+    <section id="warum" class="py-24 bg-warm">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-20 items-start">
+                <div class="reveal">
+                    <p class="section-label mb-3">Unsere Vorteile</p>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-navy leading-snug mb-4">
+                        Warum Mandanten unsere Anwaltskanzlei in Zürich wählen
+                    </h2>
+                    <div class="w-12 h-0.5 bg-gold mb-8"></div>
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Moderne Anwaltskanzlei in Zürich — professionelle Arbeitsumgebung" class="rounded w-full object-cover aspect-[16/9] mb-8 lg:mb-0" loading="lazy" width="800" height="450" />
                 </div>
-                {features.map((feature) => (
-                    <FeatureCard title={feature.title} description={feature.description} />
-                ))}
+                <div class="space-y-10 reveal">
+                    {features.map((feature, i) => (
+                        <FeatureCard title={feature.title} description={feature.description} number={String(i + 1).padStart(2, '0')} />
+                    ))}
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="font-serif text-3xl md:text-4xl font-bold text-navy mb-4">
-                    Häufige Fragen an unsere Anwaltskanzlei
-                </h2>
-                <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
-                <img src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=800&q=80" alt="Häufige Fragen zur Rechtsberatung — Anwalt Zürich beantwortet Ihre Anliegen" class="mt-6 rounded-lg shadow-sm w-full max-w-2xl mx-auto max-h-64 object-cover" loading="lazy" width="800" height="256" />
+    <!-- ═══════════════ STATISTIKEN ═══════════════ -->
+    <section class="py-16 bg-navy-dark text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center reveal">
+                <div>
+                    <span class="font-serif text-4xl md:text-5xl font-bold text-gold">15+</span>
+                    <p class="text-xs text-gray-400 mt-2 tracking-wide uppercase">Jahre Erfahrung</p>
+                </div>
+                <div>
+                    <span class="font-serif text-4xl md:text-5xl font-bold text-gold">9</span>
+                    <p class="text-xs text-gray-400 mt-2 tracking-wide uppercase">Rechtsgebiete</p>
+                </div>
+                <div>
+                    <span class="font-serif text-4xl md:text-5xl font-bold text-gold">98%</span>
+                    <p class="text-xs text-gray-400 mt-2 tracking-wide uppercase">Zufriedenheit</p>
+                </div>
+                <div>
+                    <span class="font-serif text-4xl md:text-5xl font-bold text-gold">24h</span>
+                    <p class="text-xs text-gray-400 mt-2 tracking-wide uppercase">Erstreaktion</p>
+                </div>
             </div>
-            <div class="space-y-4">
-                {faqs.map((faq, index) => (
-                    <details class="group bg-gray-50 rounded-lg border border-gray-200">
-                        <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-navy text-lg hover:text-gold transition">
-                            <span>{faq.question}</span>
-                            <svg class="w-5 h-5 flex-shrink-0 ml-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </summary>
-                        <div class="px-6 pb-6 text-gray-700 leading-relaxed">
-                            {faq.answer}
+        </div>
+    </section>
+
+    <!-- ═══════════════ FAQ ═══════════════ -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="lg:grid lg:grid-cols-[1fr_2fr] lg:gap-16">
+                <div class="mb-12 lg:mb-0 reveal">
+                    <p class="section-label mb-3">FAQ</p>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-navy leading-snug mb-4">
+                        Häufige Fragen an unsere Anwaltskanzlei
+                    </h2>
+                    <div class="w-12 h-0.5 bg-gold mb-6"></div>
+                    <img src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=600&q=80" alt="Häufige Fragen zur Rechtsberatung — Anwalt Zürich beantwortet Ihre Anliegen" class="rounded w-full object-cover aspect-[4/3] mt-6 hidden lg:block" loading="lazy" width="600" height="450" />
+                </div>
+                <div class="space-y-3 reveal">
+                    {faqs.map((faq) => (
+                        <details class="group border-b border-gray-200">
+                            <summary class="flex items-center justify-between cursor-pointer py-5 text-navy font-semibold hover:text-gold transition">
+                                <span class="pr-4">{faq.question}</span>
+                                <svg class="w-4 h-4 flex-shrink-0 text-gold transition-transform group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                </svg>
+                            </summary>
+                            <div class="pb-5 text-sm text-gray-600 leading-relaxed max-w-xl">
+                                {faq.answer}
+                            </div>
+                        </details>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ KONTAKT ═══════════════ -->
+    <section id="kontakt" class="py-24 bg-warm">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="lg:grid lg:grid-cols-[1fr_1.2fr] lg:gap-16">
+                <!-- Left: Info -->
+                <div class="mb-12 lg:mb-0 reveal">
+                    <p class="section-label mb-3">Kontakt</p>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-navy leading-snug mb-4">
+                        Kontaktieren Sie unsere Anwaltskanzlei in Zürich
+                    </h2>
+                    <div class="w-12 h-0.5 bg-gold mb-6"></div>
+                    <p class="text-gray-600 leading-relaxed mb-8">
+                        Schildern Sie uns Ihr Anliegen — wir melden uns innert 24 Stunden. <strong class="text-navy">Erstberatung kostenlos und unverbindlich.</strong>
+                    </p>
+
+                    <div class="space-y-5">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-navy-dark rounded flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 mb-0.5">Telefon</p>
+                                <a href="tel:[TELEFON]" class="text-navy font-medium hover:text-gold transition">[TELEFON]</a>
+                            </div>
                         </div>
-                    </details>
-                ))}
-            </div>
-        </div>
-    </section>
-
-    <!-- Kontakt Section -->
-    <section id="kontakt" class="py-20 bg-navy text-white">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="font-serif text-3xl md:text-4xl font-bold mb-6">
-                    Kontaktieren Sie unsere Anwaltskanzlei in Zürich
-                </h2>
-                <p class="text-xl mb-2">
-                    Schildern Sie uns Ihr Anliegen — wir melden uns innert 24 Stunden.
-                </p>
-                <p class="text-gold font-semibold text-lg">
-                    Erstberatung kostenlos und unverbindlich.
-                </p>
-            </div>
-
-            <ContactForm />
-
-            <div class="mt-12 text-center">
-                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center text-lg">
-                    <div class="flex items-center gap-2">
-                        <svg class="w-6 h-6 text-gold" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
-                        </svg>
-                        <a href="tel:[TELEFON]" class="hover:text-gold transition">[TELEFON]</a>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <svg class="w-6 h-6 text-gold" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                        </svg>
-                        <a href="mailto:[EMAIL]" class="hover:text-gold transition">[EMAIL]</a>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <svg class="w-6 h-6 text-gold" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
-                        </svg>
-                        <span>[ADRESSE], [PLZ ORT]</span>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-navy-dark rounded flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 mb-0.5">E-Mail</p>
+                                <a href="mailto:[EMAIL]" class="text-navy font-medium hover:text-gold transition">[EMAIL]</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-navy-dark rounded flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 mb-0.5">Adresse</p>
+                                <span class="text-navy font-medium">[ADRESSE], [PLZ ORT]</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-navy-dark rounded flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.828a1 1 0 101.415-1.414L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 mb-0.5">Öffnungszeiten</p>
+                                <span class="text-navy font-medium">Montag — Freitag, 08:00 — 18:00</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <p class="mt-6 text-gray-300">Montag bis Freitag, 08:00 — 18:00 Uhr</p>
+
+                <!-- Right: Form -->
+                <div class="bg-white rounded-lg border border-gray-200 p-8 md:p-10 reveal">
+                    <h3 class="font-serif text-xl font-bold text-navy mb-1">Schreiben Sie uns</h3>
+                    <p class="text-sm text-gray-500 mb-6">Wir antworten innerhalb von 24 Stunden.</p>
+                    <ContactForm />
+                </div>
             </div>
         </div>
     </section>

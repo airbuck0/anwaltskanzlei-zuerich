@@ -1,43 +1,100 @@
 ---
 interface Props {
   fixed?: boolean;
+  transparent?: boolean;
 }
 
-const { fixed = true } = Astro.props;
+const { fixed = true, transparent = false } = Astro.props;
 ---
 
-<nav class:list={["bg-white shadow-md w-full top-0 z-50", { fixed }]}>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-20">
-            <div class="flex items-center">
-                <a href="/" class="font-serif text-2xl font-bold text-navy">Anwaltskanzlei Zürich</a>
-            </div>
-            <!-- Desktop Navigation -->
-            <div class="hidden md:flex space-x-8">
-                <a href="/" class="text-gray-700 hover:text-navy transition">Home</a>
-                <a href="/#rechtsgebiete" class="text-gray-700 hover:text-navy transition">Rechtsgebiete</a>
-                <a href="/#warum" class="text-gray-700 hover:text-navy transition">Über uns</a>
-                <a href="/#kontakt" class="text-gray-700 hover:text-navy transition">Kontakt</a>
-            </div>
-            <!-- Mobile Menu Button -->
-            <div class="md:hidden">
-                <button id="mobile-menu-btn" type="button" class="text-gray-700 hover:text-navy focus:outline-none" aria-label="Menü öffnen">
-                    <svg class="w-7 h-7" id="menu-open-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                    <svg class="w-7 h-7 hidden" id="menu-close-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
+<!-- Top contact bar -->
+<div class="bg-navy-dark text-white text-xs hidden md:block">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-9">
+        <div class="flex items-center gap-6">
+            <a href="tel:[TELEFON]" class="flex items-center gap-1.5 hover:text-gold transition">
+                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                [TELEFON]
+            </a>
+            <a href="mailto:[EMAIL]" class="flex items-center gap-1.5 hover:text-gold transition">
+                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                [EMAIL]
+            </a>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden pb-4">
-            <div class="flex flex-col space-y-4">
-                <a href="/" class="text-gray-700 hover:text-navy transition py-2">Home</a>
-                <a href="/#rechtsgebiete" class="text-gray-700 hover:text-navy transition py-2">Rechtsgebiete</a>
-                <a href="/#warum" class="text-gray-700 hover:text-navy transition py-2">Über uns</a>
-                <a href="/#kontakt" class="text-gray-700 hover:text-navy transition py-2">Kontakt</a>
+        <div class="flex items-center gap-1.5 text-gray-400">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.828a1 1 0 101.415-1.414L11 9.586V6z" clip-rule="evenodd"></path></svg>
+            Mo — Fr, 08:00 — 18:00
+        </div>
+    </div>
+</div>
+
+<!-- Main navigation -->
+<nav id="main-nav" class:list={[
+    "w-full top-0 z-50 transition-all duration-300",
+    fixed ? "fixed md:top-9" : "relative",
+    transparent ? "bg-transparent" : "bg-white border-b border-gray-100"
+]}>
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex justify-between items-center h-20">
+            <!-- Logo -->
+            <a href="/" class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gold rounded flex items-center justify-center flex-shrink-0">
+                    <svg class="w-5 h-5 text-navy-dark" fill="currentColor" viewBox="0 0 20 20"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg>
+                </div>
+                <span id="nav-logo-text" class:list={[
+                    "font-serif text-xl font-bold leading-tight transition-colors",
+                    transparent ? "text-white" : "text-navy-dark"
+                ]}>Anwaltskanzlei Zürich</span>
+            </a>
+
+            <!-- Desktop links -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="/" id="nav-link-1" class:list={[
+                    "text-sm font-medium tracking-wide transition relative group",
+                    transparent ? "text-white/90 hover:text-white" : "text-gray-600 hover:text-navy"
+                ]}>
+                    Home
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all group-hover:w-full"></span>
+                </a>
+                <a href="/#rechtsgebiete" id="nav-link-2" class:list={[
+                    "text-sm font-medium tracking-wide transition relative group",
+                    transparent ? "text-white/90 hover:text-white" : "text-gray-600 hover:text-navy"
+                ]}>
+                    Rechtsgebiete
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all group-hover:w-full"></span>
+                </a>
+                <a href="/#warum" id="nav-link-3" class:list={[
+                    "text-sm font-medium tracking-wide transition relative group",
+                    transparent ? "text-white/90 hover:text-white" : "text-gray-600 hover:text-navy"
+                ]}>
+                    Über uns
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all group-hover:w-full"></span>
+                </a>
+                <a href="/#kontakt" class="text-sm font-semibold bg-gold text-navy-dark px-5 py-2.5 rounded hover:bg-gold-light transition">
+                    Kontakt
+                </a>
+            </div>
+
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-btn" type="button" class:list={[
+                "md:hidden focus:outline-none",
+                transparent ? "text-white" : "text-gray-700"
+            ]} aria-label="Menü öffnen">
+                <svg class="w-6 h-6" id="menu-open-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+                <svg class="w-6 h-6 hidden" id="menu-close-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden pb-6">
+            <div class="flex flex-col gap-1 border-t border-gray-200 pt-4">
+                <a href="/" class="text-gray-700 hover:text-navy hover:bg-gray-50 rounded-lg px-4 py-3 transition text-sm font-medium">Home</a>
+                <a href="/#rechtsgebiete" class="text-gray-700 hover:text-navy hover:bg-gray-50 rounded-lg px-4 py-3 transition text-sm font-medium">Rechtsgebiete</a>
+                <a href="/#warum" class="text-gray-700 hover:text-navy hover:bg-gray-50 rounded-lg px-4 py-3 transition text-sm font-medium">Über uns</a>
+                <a href="/#kontakt" class="mt-2 text-center bg-gold text-navy-dark px-4 py-3 rounded-lg text-sm font-semibold hover:bg-gold-light transition">Kontakt aufnehmen</a>
             </div>
         </div>
     </div>
@@ -48,14 +105,20 @@ const { fixed = true } = Astro.props;
     const menu = document.getElementById('mobile-menu');
     const openIcon = document.getElementById('menu-open-icon');
     const closeIcon = document.getElementById('menu-close-icon');
+    const nav = document.getElementById('main-nav');
+    const logoText = document.getElementById('nav-logo-text');
+    const navLinks = [
+        document.getElementById('nav-link-1'),
+        document.getElementById('nav-link-2'),
+        document.getElementById('nav-link-3'),
+    ];
 
+    // Mobile toggle
     btn?.addEventListener('click', () => {
         menu?.classList.toggle('hidden');
         openIcon?.classList.toggle('hidden');
         closeIcon?.classList.toggle('hidden');
     });
-
-    // Close menu on link click
     menu?.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             menu?.classList.add('hidden');
@@ -63,4 +126,48 @@ const { fixed = true } = Astro.props;
             closeIcon?.classList.add('hidden');
         });
     });
+
+    // Scroll: transparent → solid
+    if (nav?.classList.contains('bg-transparent')) {
+        const onScroll = () => {
+            if (window.scrollY > 80) {
+                nav.classList.remove('bg-transparent');
+                nav.classList.add('bg-white', 'shadow-sm', 'border-b', 'border-gray-100');
+                logoText?.classList.remove('text-white');
+                logoText?.classList.add('text-navy-dark');
+                navLinks.forEach(l => {
+                    l?.classList.remove('text-white/90', 'hover:text-white');
+                    l?.classList.add('text-gray-600', 'hover:text-navy');
+                });
+                btn?.classList.remove('text-white');
+                btn?.classList.add('text-gray-700');
+            } else {
+                nav.classList.add('bg-transparent');
+                nav.classList.remove('bg-white', 'shadow-sm', 'border-b', 'border-gray-100');
+                logoText?.classList.add('text-white');
+                logoText?.classList.remove('text-navy-dark');
+                navLinks.forEach(l => {
+                    l?.classList.add('text-white/90', 'hover:text-white');
+                    l?.classList.remove('text-gray-600', 'hover:text-navy');
+                });
+                btn?.classList.add('text-white');
+                btn?.classList.remove('text-gray-700');
+            }
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+    }
+
+    // Scroll-reveal
+    const reveals = document.querySelectorAll('.reveal');
+    if (reveals.length) {
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    io.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        reveals.forEach(el => io.observe(el));
+    }
 </script>

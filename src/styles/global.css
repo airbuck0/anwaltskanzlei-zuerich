@@ -6,57 +6,78 @@
   html {
     scroll-behavior: smooth;
   }
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
 @layer components {
-  .hero-bg-home {
-    background: linear-gradient(rgba(30, 58, 138, 0.7), rgba(30, 58, 138, 0.5)),
-                url('https://images.unsplash.com/photo-1508962914676-134849a727f0?w=1920&q=80');
-    background-size: cover;
-    background-position: center;
+  /* ── Scroll-reveal animation ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  /* Article heading scroll offsets */
+  /* ── Gold accent line (reusable) ── */
+  .gold-line {
+    width: 3rem;
+    height: 2px;
+    background: #c9a961;
+  }
+
+  /* ── Article heading scroll offsets ── */
   .prose h2,
   .prose h3 {
     scroll-margin-top: 100px;
   }
 
-  /* First H2 in article: no top border */
+  /* ── Article H2 styling ── */
   .article-content .prose h2:first-of-type {
     border-top: none;
     padding-top: 0;
     margin-top: 2rem;
   }
-
-  /* Gold accent after H2 */
   .article-content .prose h2::after {
     content: '';
     display: block;
-    width: 3rem;
-    height: 3px;
+    width: 2.5rem;
+    height: 2px;
     background: #c9a961;
     margin-top: 0.75rem;
   }
 
-  /* Better list bullet styling */
+  /* ── List markers ── */
   .article-content .prose ul > li::marker {
     color: #c9a961;
   }
-
   .article-content .prose ol > li::marker {
     color: #1e3a8a;
     font-weight: 600;
   }
 
-  /* Table row hover */
+  /* ── Table row hover ── */
   .article-content .prose tbody tr:hover {
-    background-color: #f0f4ff;
+    background-color: #faf9f7;
   }
 
-  /* CalloutBox inside article spacing */
-  .article-content .prose > div[class*="rounded-lg"] {
+  /* ── CalloutBox inside article spacing ── */
+  .article-content .prose > div[class*="rounded"] {
     margin-top: 2rem;
     margin-bottom: 2rem;
+  }
+
+  /* ── Section label (small uppercase) ── */
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #c9a961;
   }
 }

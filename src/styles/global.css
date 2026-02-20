@@ -16,10 +16,47 @@
     background-position: center;
   }
 
-  .prose h2 {
-    scroll-margin-top: 100px;
-  }
+  /* Article heading scroll offsets */
+  .prose h2,
   .prose h3 {
     scroll-margin-top: 100px;
+  }
+
+  /* First H2 in article: no top border */
+  .article-content .prose h2:first-of-type {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 2rem;
+  }
+
+  /* Gold accent after H2 */
+  .article-content .prose h2::after {
+    content: '';
+    display: block;
+    width: 3rem;
+    height: 3px;
+    background: #c9a961;
+    margin-top: 0.75rem;
+  }
+
+  /* Better list bullet styling */
+  .article-content .prose ul > li::marker {
+    color: #c9a961;
+  }
+
+  .article-content .prose ol > li::marker {
+    color: #1e3a8a;
+    font-weight: 600;
+  }
+
+  /* Table row hover */
+  .article-content .prose tbody tr:hover {
+    background-color: #f0f4ff;
+  }
+
+  /* CalloutBox inside article spacing */
+  .article-content .prose > div[class*="rounded-lg"] {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 }

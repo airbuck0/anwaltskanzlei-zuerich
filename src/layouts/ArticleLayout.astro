@@ -4,7 +4,6 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import Hero from '../components/Hero.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
-import TableOfContents from '../components/TableOfContents.astro';
 import ContactCTA from '../components/ContactCTA.astro';
 import SchemaOrg from '../components/SchemaOrg.astro';
 
@@ -53,23 +52,101 @@ const tocHeadings = headings
       { label: frontmatter.breadcrumbLabel },
     ]} />
 
-    {tocHeadings.length > 0 && <TableOfContents headings={tocHeadings} />}
+    <!-- Main Content with Sidebar TOC -->
+    <div class="max-w-7xl mx-auto px-4 py-12 lg:py-16">
+        <div class="lg:grid lg:grid-cols-[280px_1fr] lg:gap-12">
 
-    <article class="max-w-4xl mx-auto px-4 py-12">
-        <div class="prose prose-lg max-w-none
-            prose-headings:font-serif prose-headings:text-navy
-            prose-h2:text-3xl prose-h2:font-bold prose-h2:mt-12 prose-h2:mb-6
-            prose-h3:text-2xl prose-h3:font-bold prose-h3:mt-8 prose-h3:mb-4
-            prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-4
-            prose-a:text-navy prose-a:underline hover:prose-a:text-gold
-            prose-strong:text-navy
-            prose-table:border-collapse prose-th:bg-navy prose-th:text-white prose-th:p-3
-            prose-td:border prose-td:border-gray-200 prose-td:p-3
-            prose-li:text-gray-700
-        ">
-            <slot />
+            <!-- Sticky Sidebar TOC (Desktop) -->
+            {tocHeadings.length > 0 && (
+                <aside class="hidden lg:block">
+                    <nav class="sticky top-24 bg-gray-50 rounded-xl p-6 border border-gray-200">
+                        <h2 class="font-serif text-lg font-bold text-navy mb-4 pb-3 border-b border-gray-200">
+                            Inhaltsverzeichnis
+                        </h2>
+                        <ul class="space-y-2">
+                            {tocHeadings.map((heading) => (
+                                <li>
+                                    <a
+                                        href={`#${heading.id}`}
+                                        class:list={[
+                                            "block text-sm leading-relaxed text-gray-600 hover:text-navy hover:bg-white rounded px-2 py-1.5 transition-colors",
+                                            heading.depth === 3 && "ml-3 text-xs text-gray-500",
+                                        ]}
+                                    >
+                                        {heading.text}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                        <div class="mt-6 pt-4 border-t border-gray-200">
+                            <a href="#kontakt" class="block text-center bg-gold text-navy px-4 py-2.5 rounded-lg text-sm font-semibold hover:bg-yellow-600 transition">
+                                Kostenlose Erstberatung
+                            </a>
+                        </div>
+                    </nav>
+                </aside>
+            )}
+
+            <!-- Mobile TOC -->
+            {tocHeadings.length > 0 && (
+                <div class="lg:hidden mb-8">
+                    <details class="bg-gray-50 rounded-xl border border-gray-200 group">
+                        <summary class="cursor-pointer text-navy font-semibold text-base flex items-center gap-2 p-5">
+                            <svg class="w-5 h-5 transition-transform group-open:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            Inhaltsverzeichnis
+                        </summary>
+                        <nav class="px-5 pb-5 space-y-1.5">
+                            {tocHeadings.map((heading) => (
+                                <a
+                                    href={`#${heading.id}`}
+                                    class:list={[
+                                        "block text-sm text-gray-600 hover:text-navy transition py-1",
+                                        heading.depth === 3 && "ml-4 text-xs text-gray-500",
+                                    ]}
+                                >
+                                    {heading.text}
+                                </a>
+                            ))}
+                        </nav>
+                    </details>
+                </div>
+            )}
+
+            <!-- Article Content -->
+            <article class="article-content min-w-0">
+                <div class="prose prose-lg max-w-none
+                    prose-headings:font-serif prose-headings:text-navy
+                    prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:font-bold prose-h2:mt-16 prose-h2:mb-6 prose-h2:pt-8 prose-h2:border-t prose-h2:border-gray-200
+                    prose-h3:text-xl prose-h3:md:text-2xl prose-h3:font-semibold prose-h3:mt-10 prose-h3:mb-4
+                    prose-p:text-gray-700 prose-p:leading-[1.8] prose-p:mb-5
+                    prose-a:text-navy prose-a:underline prose-a:decoration-gold/50 prose-a:underline-offset-2 hover:prose-a:text-gold hover:prose-a:decoration-gold
+                    prose-strong:text-navy prose-strong:font-semibold
+                    prose-ul:my-6 prose-ul:space-y-2
+                    prose-ol:my-6 prose-ol:space-y-2
+                    prose-li:text-gray-700 prose-li:leading-relaxed prose-li:pl-1
+                    prose-table:my-8 prose-table:rounded-lg prose-table:overflow-hidden prose-table:shadow-sm prose-table:border prose-table:border-gray-200
+                    prose-thead:bg-navy prose-th:text-white prose-th:text-left prose-th:px-4 prose-th:py-3 prose-th:text-sm prose-th:font-semibold
+                    prose-td:px-4 prose-td:py-3 prose-td:border-b prose-td:border-gray-100 prose-td:text-sm
+                    prose-tr:even:bg-gray-50
+                    prose-img:rounded-lg prose-img:shadow-md
+                    prose-hr:my-12 prose-hr:border-gray-200
+                ">
+                    <slot />
+                </div>
+
+                <!-- Mid-article CTA -->
+                <div class="my-16 bg-gradient-to-r from-navy to-blue-900 text-white rounded-xl p-8 md:p-10 text-center">
+                    <h3 class="font-serif text-2xl font-bold mb-3">Haben Sie Fragen?</h3>
+                    <p class="text-blue-100 mb-6 max-w-lg mx-auto">Kontaktieren Sie uns für eine kostenlose und unverbindliche Erstberatung. Wir analysieren Ihre Situation und zeigen Ihnen Ihre Optionen auf.</p>
+                    <a href="#kontakt" class="inline-block bg-gold text-navy px-8 py-3.5 rounded-lg font-semibold hover:bg-yellow-600 transition transform hover:scale-105">
+                        Jetzt kostenlos beraten lassen
+                    </a>
+                </div>
+            </article>
         </div>
-    </article>
+    </div>
 
     <ContactCTA />
     <Footer />

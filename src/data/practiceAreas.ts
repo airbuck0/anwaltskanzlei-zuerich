@@ -8,6 +8,7 @@ export const practiceAreas = [
   {
     title: 'Strafrecht',
     description: 'Strafverteidigung bei Verkehrsdelikten, Wirtschaftsstrafrecht und Betrugsvorwürfen. Ihr Strafrecht-Anwalt in Zürich schützt Ihre Rechte in jedem Verfahrensstadium.',
+    href: '/anwalt-fuer-strafrecht',
     icon: `<svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg>`,
   },
   {
@@ -19,21 +20,25 @@ export const practiceAreas = [
   {
     title: 'Erbrecht',
     description: 'Testament, Erbstreitigkeiten, Erbteilung und Nachlassplanung. Unser Erbrecht-Anwalt in Zürich berät Sie kompetent nach Schweizer Recht (ZGB).',
+    href: '/anwalt-fuer-erbrecht',
     icon: `<svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>`,
   },
   {
     title: 'Mietrecht',
     description: 'Kündigungen, Mietstreitigkeiten und Mietzinsreduktionen: Unser Mietrecht-Anwalt kennt das Zürcher Mietrecht und die lokale Schlichtungsbehörde.',
+    href: '/anwalt-fuer-mietrecht',
     icon: `<svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>`,
   },
   {
     title: 'Vertragsrecht',
     description: 'Vertragsgestaltung, Vertragsprüfung und Durchsetzung. Unser Rechtsanwalt für Vertragsrecht in Zürich erstellt rechtssichere Verträge nach OR.',
+    href: '/anwalt-fuer-vertragsrecht',
     icon: `<svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>`,
   },
   {
     title: 'Baurecht',
     description: 'Baubewilligungen, Baustreitigkeiten und Werkverträge: Unsere Anwälte für Baurecht in Zürich beraten Bauherren, Architekten und Unternehmer.',
+    href: '/anwalt-fuer-baurecht',
     icon: `<svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"></path></svg>`,
   },
   {
@@ -45,6 +50,7 @@ export const practiceAreas = [
   {
     title: 'Migrationsrecht',
     description: 'Aufenthaltsbewilligungen, Einbürgerung und Ausländerrecht: Kompetente Rechtsberatung für ausländische Staatsangehörige in Zürich.',
+    href: '/anwalt-fuer-migrationsrecht',
     icon: `<svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`,
   },
 ];
